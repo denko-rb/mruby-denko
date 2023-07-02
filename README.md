@@ -6,35 +6,47 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
 
 ## Installation
 
-1. Install ESP-IDF (version 5.1 or higher):
-  - [Linux / Mac Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html)
-  - [Windows Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
-  - [VS Code Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
+1.  Install ESP-IDF (version 5.1 or higher):
+    - [Linux / Mac Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html)
+    - [Windows Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
+    - [VS Code Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
 
 
-2. Recursively clone this repo:
-  ```
-  git clone --recursive https://github.com/denko-rb/mruby-denko.git
-  ```
+2.  Recursively clone this repo:
+    ```
+    git clone --recursive https://github.com/denko-rb/mruby-denko.git
+    ```
   
-3. Change directory to the project you want.
+3.  Change directory to the project you want.
 
-4. Edit `main/spiffs/main.rb` as needed. See [examples](examples).
+4.  Edit `main/spiffs/main.rb` as needed. See [examples](examples).
 
-5. Buld with: `idf.py build`
+5.  Buld with: `idf.py build`
 
-6. Flash and monitor serial output with: `idf.py -p YOUR_SERIAL_DEVICE flash monitor`
+6.  Flash and monitor serial output with: `idf.py -p YOUR_SERIAL_DEVICE flash monitor`
 
-If there are problems, first try `idf.py fullclean`. If that doesn't work, delete the file and folder shown below, then try `idf.py fullclean` and `idf.py build` again.
-```
-components/mruby_component/esp32_build_config.rb.lock
-components/mruby_component/mruby/build
-```
-**Note:** All paths are relative to the chosen project's root.
+    If there are problems, first try `idf.py fullclean`. If that doesn't work, delete the file and folder shown below, then try `idf.py fullclean` and `idf.py build` again.
+    ```
+    components/mruby_component/esp32_build_config.rb.lock
+    components/mruby_component/mruby/build
+    ```
+    **Note:** All paths are relative to the chosen project's root.
+    
+7.  Each time you edit `main/spiffs/main.rb`, you must build and flash again. It's faster after the first build.
 
 ## Examples
-
-Examples coming soon.
+Below is the "Hello World" of microcontrollers. More examples [here](examples).
+```ruby
+# Blink built-in LED every half second.
+led = LED.new(pin: 2)
+loop do
+  led.on
+  sleep 0.5
+  led.off
+  sleep 0.5
+end
+````
+**Reminder:** mruby code goes in`main/spiffs/main.rb`.
 
 ## Dependencies
 
