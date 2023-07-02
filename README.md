@@ -17,7 +17,7 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
     git clone --recursive https://github.com/denko-rb/mruby-denko.git
     ```
   
-3.  Change directory to the project you want.
+3.  Change directory to the project you want, eg. `esp32-2mb`.
 
 4.  Edit `main/spiffs/main.rb` as needed. See [examples](examples).
 
@@ -37,6 +37,9 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
 ## Examples
 Below is the "Hello World" of microcontrollers. More examples [here](examples).
 ```ruby
+# Use submodules without Denko:: prefix.
+include Denko
+
 # Blink built-in LED every half second.
 led = LED.new(pin: 2)
 loop do
