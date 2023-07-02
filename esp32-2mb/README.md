@@ -1,4 +1,4 @@
-#mruby-denko for original ESP32
+# mruby-denko for original ESP32
 
 #### Notes
 - ESP-IDF v5.1 is recommended for building.
