@@ -7,6 +7,7 @@
 - SPIFFS partitions is 448kB.
 - CPU speed is set to 240 MHz.
 - `mruby` submodule is set to the 3.2.0 release.
-- `main.rb` runs pinned to Core 1, with Core 0 left free for the OS.
+- RTOS task affinity set to Core 0.
+- mruby `main.rb` runs pinned to Core 1.
 - Watchdog timer is disabled for Core 1 only.
 - Tested on: DOIT ESP32 DevKit V1.
