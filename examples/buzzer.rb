@@ -1,3 +1,6 @@
+# Use submodules without Denko:: prefix.
+include Denko
+
 # Connect piezo-electric buzzer to this pin.
 buzzer = PulseIO::Buzzer.new(pin: 4)
 
@@ -28,3 +31,6 @@ notes.each do |note|
 end
 
 buzzer.stop
+
+# Low power sleep. After 10 seconds, the board reboots and reruns the app from the start.
+# $board.deep_sleep(10)
