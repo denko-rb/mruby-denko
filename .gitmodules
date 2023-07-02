@@ -1,0 +1,3 @@
+[submodule "esp32-2mb/components/mruby_component/mruby"]
+	path = esp32-2mb/components/mruby_component/mruby
+	url = https://github.com/mruby/mruby.git
