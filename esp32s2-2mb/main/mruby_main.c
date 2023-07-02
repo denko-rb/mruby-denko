@@ -48,8 +48,8 @@ void mruby_task(void *pvParameter)
   mrb_close(mrb);
   fclose(fp);
 
-  // This task should never end, even if the
-  // script ends.
+// This task should never end, even if the
+// script ends.
 exit:
   while (1) {
     vTaskDelay(1);

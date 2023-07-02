@@ -11,7 +11,7 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
     - [Windows Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
     - [VS Code Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
 
-    **Note:** Make sure to set up the toolchain for your variant when installing the IDF, i.e. run `./install.sh esp32s3` inside the idf install directory for the ESP32-S3. `./install.sh all` doesn't seem to install everything.
+    **Note:** If you used `./install.sh all` when setting up the IDF, and are having issues compiling, try install again, but with your specific chip given. Eg. run `./install.sh esp32s3` inside the IDF install directory for the ESP32-S3.
 
 2.  Recursively clone this repo:
     ```
