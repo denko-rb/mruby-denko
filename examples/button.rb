@@ -1,7 +1,7 @@
 # Use submodules without Denko:: prefix.
 include Denko
 
-# Connect a button to GPIO4.
+# Connect button between a GPIO pin and ground.
 button = DigitalIO::Button.new(pin: 4, pullup: true)
 
 # Add callbacks.

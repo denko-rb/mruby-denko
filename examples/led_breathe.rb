@@ -1,7 +1,8 @@
 # Use submodules without Denko:: prefix.
 include Denko
 
-# Blink built-in LED every half second.
+# Give built-in LED pin, or connect external LED to a pin.
+# Will not work with built in WS2812 LEDs.
 led = LED.new(pin: 2)
 
 # Fade the LED up and down. 8-bit PWM.

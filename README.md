@@ -26,17 +26,17 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
 
 6.  Flash and monitor serial output with: `idf.py -p YOUR_SERIAL_DEVICE flash monitor`
 
-    If there are problems, first try `idf.py fullclean`. If that doesn't work, delete the file and folder shown below, then try `idf.py fullclean` and `idf.py build` again.
+7. If there are problems, first try `idf.py fullclean`. If that doesn't work, delete the file and folder shown below, then try `idf.py fullclean` and `idf.py build` again.
     ```
     components/mruby_component/esp32_build_config.rb.lock
     components/mruby_component/mruby/build
     ```
     **Note:** All paths are relative to the chosen project's root.
     
-7.  Each time you edit `main/spiffs/main.rb`, you must build and flash again. It's faster after the first build.
+8.  Each time you edit `main/spiffs/main.rb`, you must build and flash again. It's faster after the first build.
 
 ## Examples
-Below is the "Hello World" of microcontrollers. More examples [here](examples).
+Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
 ```ruby
 # Use submodules without Denko:: prefix.
 include Denko
@@ -58,18 +58,18 @@ Dependencies are automatically handled by mruby's build system. These links are 
 
 Direct dependencies:
 
-- [mruby-denko-board-esp32](https://github.com/denko-rb/mruby-denko-board-esp32)
 - [mruby-denko-core](https://github.com/denko-rb/mruby-denko-core)
+- [mruby-denko-board-esp32](https://github.com/denko-rb/mruby-denko-board-esp32)
 
 Forks or inline modified versions of:
 
-- [mruby-io](https://github.com/mruby-esp32/mruby-io)
-- [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
-- [mruby-esp32-gpio](https://github.com/mruby-esp32/mruby-esp32-gpio)
 - [mruby-esp32-ledc](https://github.com/mruby-esp32/mruby-esp32-ledc)
+- [mruby-esp32-gpio](https://github.com/mruby-esp32/mruby-esp32-gpio)
+- [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
 
+mruby from this fork:
 
-Plus many standard mrgbgems included with mruby.
+- [mruby](https://github.com/denko-rb/mruby) (Some core gems modified. Uses the `esp32-stable` branch)
 
 ## Other Implementations
 - The original [CRuby gem](https://github.com/denko-rb/denko) runs on any computer and uses a connected (Serial or TCP) microcontroller.

@@ -1,7 +1,7 @@
 # Use submodules without Denko:: prefix.
 include Denko
 
-# Connect piezo-electric buzzer to this pin.
+# Connect piezo-electric buzzer to a pin.
 buzzer = PulseIO::Buzzer.new(pin: 4)
 
 # Note frequencies.
@@ -30,6 +30,7 @@ notes.each do |note|
   buzzer.tone(10)
 end
 
+# Turn the buzzer off.
 buzzer.stop
 
 # Low power sleep. After 10 seconds, the board reboots and reruns the app from the start.

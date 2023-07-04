@@ -1,10 +1,11 @@
 # Use submodules without Denko:: prefix.
 include Denko
 
-# Connect a button to GPIO4.
+# Connect button between a GPIO pin and ground.
 button = DigitalIO::Button.new(pin: 4, pullup: true)
 
-# Built-in LED or LED to GPIO2.
+# Give built-in LED pin, or connect external LED to a pin.
+# Will not work with built in WS2812 LEDs.
 led = LED.new(pin: 2)
 
 # Add callbacks so LED is only lit when button is pressed.
