@@ -1,3 +1,4 @@
+/esp32*/dependencies.lock
 /esp32*/build/
 /esp32*/sdkconfig.old
 /esp32*/main/main_mrb.h

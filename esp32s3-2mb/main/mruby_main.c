@@ -4,7 +4,7 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
+#include "esp_littlefs.h"
 #include "nvs_flash.h"
 
 #include "mruby.h"
@@ -26,12 +26,12 @@ void mruby_task(void *pvParameter)
   ESP_LOGI(TAG, "%s", "Loading...");
 
   mrb_load_func load = mrb_load_detect_file_cxt;
-  FILE *fp = fopen("/spiffs/main.rb", "r");
+  FILE *fp = fopen("/storage/main.rb", "r");
   if (fp == NULL) {
     load = mrb_load_irep_file_cxt;
-    fp = fopen("/spiffs/main.mrb", "r");
+    fp = fopen("/storage/main.mrb", "r");
     if (fp == NULL) {
-      ESP_LOGI(TAG, "File is none.");
+      ESP_LOGI(TAG, "Cannot find main.rb or main.mrb");
       goto exit;
     }
   }
@@ -47,9 +47,8 @@ void mruby_task(void *pvParameter)
   mrbc_context_free(mrb, context);
   mrb_close(mrb);
   fclose(fp);
-
-// This task should never end, even if the
-// script ends.
+  
+// This task should never end, even if the script ends.
 exit:
   while (1) {
     vTaskDelay(1);
@@ -60,13 +59,13 @@ void app_main()
 {
   nvs_flash_init();
 
-  esp_vfs_spiffs_conf_t conf = {
-    .base_path = "/spiffs",
-    .partition_label = NULL,
-    .max_files = 10,
-    .format_if_mount_failed = false
+  esp_vfs_littlefs_conf_t conf = {
+    .base_path = "/storage",
+    .partition_label = "storage",
+    .format_if_mount_failed = false,
   };
-  ESP_ERROR_CHECK(esp_vfs_spiffs_register(&conf));
+  ESP_ERROR_CHECK(esp_vfs_littlefs_register(&conf));
 
+  // Run mruby pinned to core 1, leaving core 0 free for other tasks.
   xTaskCreatePinnedToCore(&mruby_task, "mruby_task", 16384, NULL, 5, NULL, 1);
 }
