@@ -13,11 +13,17 @@ mqtt.connect
 # Subscribe to the topic.
 mqtt.subscribe(TOPIC)
 
-# Wait for messages and print them.
-# mqtt.get blocks until a message is received.
+# Main loop
 loop do
-  topic, message = mqtt.get
-  puts "Topic: #{topic}, message: #{message}"
+  # If any messages on the queue, read and print them all.
+  topic, message = mqtt.read
+  while (message) do
+    puts "Topic: #{topic}, message: #{message}"
+    topic, message = mqtt.read
+  end
+
+  # Wait before checking again.
+  sleep 0.5
 end
 
 # Send a message using another MQTT client or a site like:
