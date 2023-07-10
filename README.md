@@ -52,6 +52,18 @@ end
 ````
 **Reminder:** mruby code goes in`main/spiffs/main.rb`.
 
+## Supported Hardware
+
+|    Chip        | Build Status    | Board Tested         | Notes |
+| :--------      | :------:        | :---------------     |------ |
+| ESP32          | :green_heart:   | DOIT ESP32 DevKit V1 |
+| ESP32-S2       | :green_heart:   | LOLIN S2 Pico        | Native USB
+| ESP32-S3       | :green_heart:   | LOLIN S3 V1.0.0      | Native USB
+| ESP32-C3       | :heart:         | LOLIN C3 Mini V2.1.0 | Native USB
+| ESP32-C2       | :question:      | -                    | 
+| ESP32-C6       | :question:      | -                    | 
+| ESP32-H2       | :question:      | -                    | 
+
 ## Dependencies
 
 Dependencies are automatically handled by mruby's build system. These links are for refrence.
