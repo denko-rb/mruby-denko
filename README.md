@@ -56,20 +56,8 @@ end
 
 Dependencies are automatically handled by mruby's build system. These links are for refrence.
 
-Direct dependencies:
-
 - [mruby-denko-core](https://github.com/denko-rb/mruby-denko-core)
 - [mruby-denko-board-esp32](https://github.com/denko-rb/mruby-denko-board-esp32)
-
-Forks or inline modified versions of:
-
-- [mruby-esp32-ledc](https://github.com/mruby-esp32/mruby-esp32-ledc)
-- [mruby-esp32-gpio](https://github.com/mruby-esp32/mruby-esp32-gpio)
-- [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
-
-mruby from this fork:
-
-- [mruby](https://github.com/denko-rb/mruby) (Some core gems modified. Uses the `esp32-stable` branch)
 
 ## Other Implementations
 - The original [CRuby gem](https://github.com/denko-rb/denko) runs on any computer and uses a connected (Serial or TCP) microcontroller.
