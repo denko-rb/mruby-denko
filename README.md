@@ -72,7 +72,7 @@ Dependencies are automatically handled by mruby's build system. These links are 
 - [mruby-denko-board-esp32](https://github.com/denko-rb/mruby-denko-board-esp32)
 - [mruby-denko-wifi-esp32](https://github.com/denko-rb/mruby-denko-wifi-esp32)
 - [mruby-denko-mqtt-esp32](https://github.com/denko-rb/mruby-denko-mqtt-esp32)
-- 
+
 ## Other Implementations
 - The original [CRuby gem](https://github.com/denko-rb/denko) runs on any computer and uses a connected (Serial or TCP) microcontroller.
 - The [Raspberry Pi](https://github.com/denko-rb/denko-piboard) extension allows the CRuby gem to work with the Raspberry Pi GPIO header.
