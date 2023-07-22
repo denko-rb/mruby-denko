@@ -20,7 +20,7 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
   
 3.  Change directory to the project you want, eg. `esp32-2mb`.
 
-4.  Edit `main/spiffs/main.rb` as needed. See [examples](examples).
+4.  Edit `main/storage/main.rb` as needed. See [examples](examples).
 
 5.  Buld with: `idf.py build`
 
@@ -33,7 +33,7 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
     ```
     **Note:** All paths are relative to the chosen project's root.
     
-8.  Each time you edit `main/spiffs/main.rb`, you must build and flash again. It's faster after the first build.
+8.  Each time you edit `main/storage/main.rb`, you must build and flash again. It's faster after the first build.
 
 ## Examples
 Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
@@ -50,7 +50,7 @@ loop do
   sleep 0.5
 end
 ````
-**Reminder:** mruby code goes in`main/spiffs/main.rb`.
+**Reminder:** mruby code goes in`main/storage/main.rb`.
 
 ## Supported Hardware
 
