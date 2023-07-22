@@ -10,20 +10,14 @@ wifi.connect('SSID', 'password')
 mqtt = MQTT::Client.new('test.mosquitto.org', 1883)
 mqtt.connect
 
-# Subscribe to the topic.
-mqtt.subscribe(TOPIC)
+# Subscribe to a topic with a callback as a block.
+mqtt.subscribe(TOPIC) do |message|
+  puts "Topic: #{TOPIC}, message: #{message}"
+end
 
-# Main loop
+# Message receive is event driven, so main loop can do whatever.
 loop do
-  # If any messages on the queue, read and print them all.
-  topic, message = mqtt.read
-  while (message) do
-    puts "Topic: #{topic}, message: #{message}"
-    topic, message = mqtt.read
-  end
-
-  # Wait before checking again.
-  sleep 0.5
+  sleep 1
 end
 
 # Send a message using another MQTT client or a site like:
