@@ -63,9 +63,12 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.gem :github => "denko-rb/mruby-denko-board-esp32"
   conf.gem :github => "denko-rb/mruby-denko-core"
 
+  # Additional component drivers.
+  conf.gem :github => "denko-rb/mruby-denko-hd44780"
+
   # Platform-specific ESP32 WiFi and MQTT implementations.
-  conf.gem :github => "denko-rb/mruby-denko-wifi-esp32" 
-  conf.gem :github => "denko-rb/mruby-denko-mqtt-esp32" 
+  conf.gem :github => "denko-rb/mruby-denko-wifi-esp32"
+  conf.gem :github => "denko-rb/mruby-denko-mqtt-esp32"
   
   # TCPSocket gem in mruby fork is modified to work on ESP32.
   # conf.gem :core => "mruby-socket"
