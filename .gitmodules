@@ -1,12 +1,6 @@
-[submodule "esp32-2mb/components/esp_littlefs"]
-	path = esp32-2mb/components/esp_littlefs
-	url = https://github.com/joltwallet/esp_littlefs.git
-[submodule "esp32s2-2mb/components/esp_littlefs"]
-	path = esp32s2-2mb/components/esp_littlefs
-	url = https://github.com/joltwallet/esp_littlefs.git
-[submodule "esp32s3-2mb/components/esp_littlefs"]
-	path = esp32s3-2mb/components/esp_littlefs
-	url = https://github.com/joltwallet/esp_littlefs.git
-[submodule "mruby"]
-	path = mruby
+[submodule "ext/mruby"]
+	path = ext/mruby
 	url = https://github.com/denko-rb/mruby.git
+[submodule "ext/esp_littlefs"]
+	path = ext/esp_littlefs
+	url = https://github.com/joltwallet/esp_littlefs.git
