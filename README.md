@@ -4,7 +4,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains E
 
 ## Installation
 
-1.  Install ESP-IDF (version 5.1 or higher):
+1.  Install ESP-IDF (version 5.4 or higher):
     - [Linux / Mac Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html)
     - [Windows Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
     - [VS Code Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
@@ -27,6 +27,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains E
 7.  Each time you edit `main/storage/main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
 
 8.  Run `idf.py clean` to reset the build and rebuild from scratch.
+    **Note:** Be sure to **do this when switching between project folders for different chips**. They share a single mruby folder.
 
 ## Examples
 Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
