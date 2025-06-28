@@ -70,5 +70,5 @@ Dependencies are automatically handled by mruby's build system. These links are 
 
 ## Other Implementations
 - The original [CRuby gem](https://github.com/denko-rb/denko) runs on a PC, "remote controlling" a microcontroller connected via serial or TCP
-- The [Linux SBC](https://github.com/denko-rb/denko-piboard) extension allows the CRuby gem to work with the Raspberry Pi GPIO header
+- The [Linux SBC](https://github.com/denko-rb/denko-piboard) extension allows the CRuby gem to use SBC GPIO headers
 - The [Milk-V mruby](https://github.com/denko-rb/mruby-denko-milkv-duo) version runs on a tiny Linux SBC, with the same form-factor as a Raspberry Pi Pico
