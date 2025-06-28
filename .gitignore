@@ -1,11 +1,11 @@
-/esp32*/dependencies.lock
-/esp32*/build/
-/esp32*/sdkconfig.old
-/esp32*/main/main_mrb.h
-/esp2*/main/spiffs/*.pem
-/esp32*/main/spiffs/*.pem.key
-/esp32*/main/spiffs/*.pem.crt
-/esp32*/components/mruby_component/esp32_build_config.rb.lock
-
-.vscode
+/.cache
+/sdkconfig
+/dependencies.lock
+/build/
+/sdkconfig.old
+/main/main_mrb.h
+/main/spiffs/*.pem
+/main/spiffs/*.pem.key
+/main/spiffs/*.pem.crt
+/components/mruby_component/esp32_build_config.rb.lock
 

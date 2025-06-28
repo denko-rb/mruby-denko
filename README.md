@@ -4,7 +4,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains E
 
 ## Installation
 
-1.  Install ESP-IDF (version 5.4 or higher):
+1.  Install ESP-IDF (version 5.4.2 or higher):
     - [Linux / Mac Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html)
     - [Windows Instructions](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/windows-setup.html)
     - [VS Code Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
@@ -16,28 +16,25 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains E
     git clone --recursive https://github.com/denko-rb/mruby-denko.git
     ```
 
-3.  Change directory to the project you want, eg. `esp32-2mb`.
+3.  Set the target to your chip with `idf.py set-target <YOUR_CHIP>`, where `<YOUR_CHIP>` is one of: `esp32`, `esp32s2` or `esp32s3`.
 
-4.  Edit `main/storage/main.rb` as needed. This is the mruby script that runs automatically, once the microcontroller starts up. See [examples](examples).
+4.  Edit `main/storage/main.rb` as needed. This is the mruby script that runs automatically, once the microcontroller starts up.
 
 5.  Buld with: `idf.py build`
 
-6.  Flash and monitor serial output with: `idf.py -p YOUR_SERIAL_DEVICE flash monitor`
+6.  Flash and monitor serial output with: `idf.py flash monitor`. Add `-p <YOUR_SERIAL_DEVICE>` if you need to specify.
 
 7.  Each time you edit `main/storage/main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
 
-8.  Run `idf.py clean fullclean build` to rebuild from scratch.
-
-    **Note:** Be sure to **do this when switching between project folders for different chips**. Git submodules are shared between them all (to avoid managing multiple clones), and some build files, which are incompatible between chips, get written there.
+8.  Run `idf.py clean fullclean` in the event you want to remove all build files and build from scratch again.
 
 ## Examples
 Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
 ```ruby
-# Use submodules without Denko:: prefix.
-include Denko
+board = Denko::Board.new
 
 # Blink built-in LED every half second.
-led = LED.new(pin: 2)
+led = LED.new(board: board, pin: 2)
 loop do
   led.on
   sleep 0.5
@@ -59,14 +56,31 @@ end
 | ESP32-C6       | :question:      | -                    |
 | ESP32-H2       | :question:      | -                    |
 
+## Build Environment
+- ESP-IDF version 5.4.2
+- mruby version 3.4.0, from [this fork](https://github.com/denko-rb/mruby), where `mruby-io` and `mruby-socket` have been modified
+- `partitions.csv` definees 2MB of flash, so it should fit any variant
+  - Uses [esp_littlefs](https://github.com/joltwallet/esp_littlefs) version 1.20.0
+  - App partition is 1792 kB
+  - `/storage` is 192 kB
+- CPU speed set to 240 MHz for all Xtensa chips
+
+### Chip-Specific Notes
+
+- For `esp32` and `esp32s3`, the mruby task (`main.rb`) is pinned to Core 1, with its watchdog timer disabled. This means mruby code can stay in a tight loop indefinitely, without starving the RTOS of resources, as they will run on Core 0.
+- This is not the case for the `esp32s2`, which only has a single core. `Kernel#sleep` must be called periodically to avoid crashing.
+- For the S2, Component Config -> ESP System Settings -> Channel for console output must be set to `USB CDC` in menuconfig for console output to appear on its native USB port. This is unlike the S3, which is also native USB, but uses the `UART0` setting.
+
 ## Dependencies
 
 Dependencies are automatically handled by mruby's build system. These links are for refrence.
 
-- [mruby-denko-core](https://github.com/denko-rb/mruby-denko-core)
-- [mruby-denko-board-esp32](https://github.com/denko-rb/mruby-denko-board-esp32)
-- [mruby-denko-wifi-esp32](https://github.com/denko-rb/mruby-denko-wifi-esp32)
-- [mruby-denko-mqtt-esp32](https://github.com/denko-rb/mruby-denko-mqtt-esp32)
+- [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
+- [mruby-esp32-wifi](https://github.com/mruby-esp32/mruby-esp32-wifi)
+- [mruby-esp32-mqtt](https://github.com/mruby-esp32/mruby-esp32-mqtt)
+- [picoruby](https://github.com/picoruby/picoruby)
+- [mruby-denko-esp32](https://github.com/denko-rb/mruby-denko-esp32)
+- [denko](https://github.com/denko-rb/denko)
 
 ## Other Implementations
 - The original [CRuby gem](https://github.com/denko-rb/denko) runs on a PC, "remote controlling" a microcontroller connected via serial or TCP

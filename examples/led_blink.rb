@@ -1,9 +1,8 @@
-# Use submodules without Denko:: prefix.
-include Denko
+board = Denko::Board.new
 
 # Give built-in LED pin, or connect external LED to a pin.
 # Will not work with built in WS2812 LEDs.
-led = LED.new(pin: 2)
+led = LED.new(board: board, pin: 2)
 
 # Blink every half second.
 loop do

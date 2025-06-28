@@ -58,18 +58,12 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.bins = []
   conf.build_mrbtest_lib_only
   conf.disable_cxx_exception
-  
-  # ESP32 hardware abstraction + core Denko functionality.
-  conf.gem :github => "denko-rb/mruby-denko-board-esp32"
-  conf.gem :github => "denko-rb/mruby-denko-core"
 
-  # Additional component drivers.
-  conf.gem :github => "denko-rb/mruby-denko-hd44780"
+  # mrbgems from mruby-esp32 project
+  conf.gem github: "mruby-esp32/mruby-esp32-system"
+  conf.gem github: "mruby-esp32/mruby-esp32-wifi"
+  conf.gem github: "mruby-esp32/mruby-esp32-mqtt"
 
-  # Platform-specific ESP32 WiFi and MQTT implementations.
-  conf.gem :github => "denko-rb/mruby-denko-wifi-esp32"
-  conf.gem :github => "denko-rb/mruby-denko-mqtt-esp32"
-  
-  # TCPSocket gem in mruby fork is modified to work on ESP32.
-  # conf.gem :core => "mruby-socket"
+  # ESP32 implementation of Denko::Board
+  conf.gem :github => "denko-rb/mruby-denko-esp32"
 end
