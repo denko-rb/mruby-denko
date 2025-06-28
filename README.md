@@ -1,8 +1,6 @@
-# mruby-denko
+# mruby-denko-esp32-build
 
-Denko is a Ruby library for microcontrollers and connected peripherals. This implementation runs on [mruby](https://github.com/mruby/mruby), self-contained on a microcontroller. It's an early work-in progress, but many basic features are usable. Right now it only runs on the ESP32 series of microcontrollers. See [other implementations](#other-implementations) if you need more.
-
-This repo contains ESP-IDF projects required to build and flash different ESP32 boards with mruby and Denko.
+Denko is a Ruby/mruby library for working with electronics. This repo contains ESP-IDF projects required to build and flash Xtensa-based ESP32 boards with firmware running mruby and Denko.
 
 ## Installation
 
@@ -17,10 +15,10 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
     ```
     git clone --recursive https://github.com/denko-rb/mruby-denko.git
     ```
-  
+
 3.  Change directory to the project you want, eg. `esp32-2mb`.
 
-4.  Edit `main/storage/main.rb` as needed. See [examples](examples).
+4.  Edit `main/storage/main.rb` as needed. This is the mruby script that runs automatically, once the microcontroller starts up. See [examples](examples).
 
 5.  Buld with: `idf.py build`
 
@@ -55,9 +53,9 @@ end
 | ESP32-S2       | :green_heart:   | LOLIN S2 Pico        | Native USB
 | ESP32-S3       | :green_heart:   | LOLIN S3 V1.0.0      | Native USB
 | ESP32-C3       | :heart:         | LOLIN C3 Mini V2.1.0 | Native USB
-| ESP32-C2       | :question:      | -                    | 
-| ESP32-C6       | :question:      | -                    | 
-| ESP32-H2       | :question:      | -                    | 
+| ESP32-C2       | :question:      | -                    |
+| ESP32-C6       | :question:      | -                    |
+| ESP32-H2       | :question:      | -                    |
 
 ## Dependencies
 
@@ -69,5 +67,6 @@ Dependencies are automatically handled by mruby's build system. These links are 
 - [mruby-denko-mqtt-esp32](https://github.com/denko-rb/mruby-denko-mqtt-esp32)
 
 ## Other Implementations
-- The original [CRuby gem](https://github.com/denko-rb/denko) runs on any computer and uses a connected (Serial or TCP) microcontroller.
-- The [Raspberry Pi](https://github.com/denko-rb/denko-piboard) extension allows the CRuby gem to work with the Raspberry Pi GPIO header.
+- The original [CRuby gem](https://github.com/denko-rb/denko) runs on any computer and "remote controls" a microcontroller connected via serial or TCP.
+- The [Linux SBC](https://github.com/denko-rb/denko-piboard) extension allows the CRuby gem to work with the Raspberry Pi GPIO header.
+- The [Milk-V mruby](https://github.com/denko-rb/mruby-denko-milkv-duo) version runs on a tiny Linux SBC, with the same form-factor as a Raspberry Pi Pico.
