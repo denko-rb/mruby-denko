@@ -1,6 +1,6 @@
 # mruby-denko-esp32-build
 
-Denko is a Ruby/mruby library for working with electronics. This repo contains ESP-IDF projects required to build and flash Xtensa-based ESP32 boards with firmware running mruby and Denko.
+Denko is a Ruby/mruby library for working with electronics. This repo contains the ESP-IDF project for building and flashing Xtensa-based ESP32 chips with firmware that runs mruby and Denko.
 
 ## Installation
 
