@@ -67,17 +67,17 @@ end
 
 ### Chip-Specific Notes
 
-- For `esp32` and `esp32s3`, the mruby task (`main.rb`) is pinned to Core 1, with its watchdog timer disabled. This means mruby code can stay in a tight loop indefinitely, without starving the RTOS of resources, as they will run on Core 0.
+- For `esp32` and `esp32s3`, the mruby task (`main.rb`) is pinned to Core 1, with its watchdog timer disabled. This means mruby code can stay in a tight loop indefinitely, without starving the RTOS of resources, as other tasks can run on Core 0.
 - This is not the case for the `esp32s2`, which only has a single core. `Kernel#sleep` must be called periodically to avoid crashing.
-- For the S2, Component Config -> ESP System Settings -> Channel for console output must be set to `USB CDC` in menuconfig for console output to appear on its native USB port. This is unlike the S3, which is also native USB, but uses the `UART0` setting.
+- For the S2, `Component Config -> ESP System Settings -> Channel for console output` must be set to `USB CDC` in menuconfig for console output to appear on its native USB port. This is unlike the S3, which is also native USB, but works with the default `UART0` setting.
 
 ## Dependencies
 
 Dependencies are automatically handled by mruby's build system. These links are for refrence.
 
 - [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
-- [mruby-esp32-wifi](https://github.com/mruby-esp32/mruby-esp32-wifi)
-- [mruby-esp32-mqtt](https://github.com/mruby-esp32/mruby-esp32-mqtt)
+- [mruby-denko-wifi-esp32](https://github.com/denko-rb/mruby-denko-wifi-esp32)
+- [mruby-denko-mqtt-esp32](https://github.com/denko-rb/mruby-denko-mqtt-esp32)
 - [picoruby](https://github.com/picoruby/picoruby)
 - [mruby-denko-esp32](https://github.com/denko-rb/mruby-denko-esp32)
 - [denko](https://github.com/denko-rb/denko)

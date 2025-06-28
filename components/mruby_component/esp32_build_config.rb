@@ -61,8 +61,8 @@ MRuby::CrossBuild.new('esp32') do |conf|
 
   # mrbgems from mruby-esp32 project
   conf.gem github: "mruby-esp32/mruby-esp32-system"
-  conf.gem github: "mruby-esp32/mruby-esp32-wifi"
-  conf.gem github: "mruby-esp32/mruby-esp32-mqtt"
+  conf.gem github: "denko-rb/mruby-denko-wifi-esp32"
+  conf.gem github: "denko-rb/mruby-denko-mqtt-esp32"
 
   # ESP32 implementation of Denko::Board
   conf.gem :github => "denko-rb/mruby-denko-esp32"
