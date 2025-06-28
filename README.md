@@ -27,7 +27,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains E
 7.  Each time you edit `main/storage/main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
 
 8.  Run `idf.py clean fullclean build` to rebuild from scratch.
-    - **Note:** Be sure to **do this when switching between project folders for different chips**. Git submodules are shared between them all (to avoid managing multiple clones), and some build files, which are incompatible between chips, get written there.
+  - **Note:** Be sure to **do this when switching between project folders for different chips**. Git submodules are shared between them all (to avoid managing multiple clones), and some build files, which are incompatible between chips, get written there.
 
 ## Examples
 Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
