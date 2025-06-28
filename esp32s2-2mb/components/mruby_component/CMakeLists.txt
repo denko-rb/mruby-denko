@@ -15,6 +15,10 @@ add_custom_command(
   VERBATIM
 )
 
+set_property(DIRECTORY APPEND PROPERTY
+  ADDITIONAL_CLEAN_FILES ${MRUBY_DIR}/build
+)
+
 add_prebuilt_library(
   libmruby ${LIBMRUBY_FILE}
   PRIV_REQUIRES esp_hw_support esp_rom esp_timer driver esp_adc esp_wifi mqtt

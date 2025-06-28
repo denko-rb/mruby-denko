@@ -26,14 +26,9 @@ This repo contains ESP-IDF projects required to build and flash different ESP32 
 
 6.  Flash and monitor serial output with: `idf.py -p YOUR_SERIAL_DEVICE flash monitor`
 
-7. If there are problems, first try `idf.py fullclean`. If that doesn't work, delete the file and folder shown below, then try `idf.py fullclean` and `idf.py build` again.
-    ```
-    components/mruby_component/esp32_build_config.rb.lock
-    components/mruby_component/mruby/build
-    ```
-    **Note:** All paths are relative to the chosen project's root.
-    
-8.  Each time you edit `main/storage/main.rb`, you must build and flash again. It's faster after the first build.
+7.  Each time you edit `main/storage/main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
+
+8.  Run `idf.py clean` to reset the build and rebuild from scratch.
 
 ## Examples
 Here is the "Hello World" equivalent for microcontrollers. More examples [here](examples).
