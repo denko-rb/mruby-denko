@@ -133,10 +133,10 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.gem "#{__dir__}/mrbgems/picoruby-stubs"
   picoruby_mrbgems = "#{__dir__}/picoruby/mrbgems"
   conf.gem "#{picoruby_mrbgems}/picoruby-gpio"
-  conf.gem "#{picoruby_mrbgems}/picoruby-adc"
-  conf.gem "#{picoruby_mrbgems}/picoruby-spi"
   conf.gem "#{picoruby_mrbgems}/picoruby-pwm"
+  conf.gem "#{picoruby_mrbgems}/picoruby-adc"
   conf.gem "#{picoruby_mrbgems}/picoruby-i2c"
+  conf.gem "#{picoruby_mrbgems}/picoruby-spi"
 
   # ESP32 implementation of Denko::Board
   conf.gem :github => "denko-rb/mruby-denko-esp32"
