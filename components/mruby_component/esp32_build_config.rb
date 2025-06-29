@@ -67,6 +67,7 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.disable_cxx_exception
 
   # Use PicoRuby's mrbgems for hardware abstraction.
+  conf.gem "#{__dir__}/mrbgems/picoruby-stubs"
   picoruby_mrbgems = "#{__dir__}/picoruby/mrbgems"
   conf.gem "#{picoruby_mrbgems}/picoruby-gpio"
   conf.gem "#{picoruby_mrbgems}/picoruby-adc"
