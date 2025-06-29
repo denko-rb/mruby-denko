@@ -59,7 +59,7 @@ end
 ## Build Environment
 - ESP-IDF version 5.4.2
 - mruby version 3.4.0, from [this fork](https://github.com/denko-rb/mruby), where `mruby-io` and `mruby-socket` have been modified
-- `partitions.csv` definees 4MB of flash, so it should fit any variant
+- `partitions.csv` defines 4MB of flash, so it should fit any variant
   - Uses [esp_littlefs](https://github.com/joltwallet/esp_littlefs) version 1.20.0
   - App partition is 2816 kB
   - `/storage` is 1216 kB
