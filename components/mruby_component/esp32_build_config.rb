@@ -49,6 +49,7 @@ MRuby::CrossBuild.new('esp32') do |conf|
     # PicoRuby specific stuff
     cc.defines << %w(PICORB_VM_MRUBY)
     cc.defines << %w(PICORUBY_PORT_ESP32)
+    cc.defines << %w(MRBC_USE_FLOAT)
     stub_include_path = File.expand_path(File.join(__dir__, "include"))
     cc.include_paths << stub_include_path
   end
