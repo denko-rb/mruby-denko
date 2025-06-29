@@ -6,7 +6,7 @@ puts "Denko version: #{Denko::VERSION}"
 mem = ESP32::System.available_memory / 1000
 puts "Free heap: #{mem}k"
 
-PIN = 8
+PIN = 6
 board = Denko::Board.new
 
 # Blink an LED connected to pin 8 every half second.
