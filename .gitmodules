@@ -4,3 +4,6 @@
 [submodule "components/mruby_component/mruby"]
 	path = components/mruby_component/mruby
 	url = https://github.com/denko-rb/mruby.git
+[submodule "components/mruby_component/picoruby"]
+	path = components/mruby_component/picoruby
+	url = https://github.com/picoruby/picoruby.git

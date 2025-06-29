@@ -66,6 +66,14 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.build_mrbtest_lib_only
   conf.disable_cxx_exception
 
+  # Use PicoRuby's mrbgems for hardware abstraction.
+  picoruby_mrbgems = "#{__dir__}/picoruby/mrbgems"
+  conf.gem "#{picoruby_mrbgems}/picoruby-gpio"
+  conf.gem "#{picoruby_mrbgems}/picoruby-adc"
+  conf.gem "#{picoruby_mrbgems}/picoruby-spi"
+  conf.gem "#{picoruby_mrbgems}/picoruby-pwm"
+  conf.gem "#{picoruby_mrbgems}/picoruby-i2c"
+
   # mrbgems from mruby-esp32 project
   conf.gem github: "mruby-esp32/mruby-esp32-system"
   conf.gem github: "denko-rb/mruby-denko-wifi-esp32"
