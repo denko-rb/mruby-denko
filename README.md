@@ -59,10 +59,10 @@ end
 ## Build Environment
 - ESP-IDF version 5.4.2
 - mruby version 3.4.0, from [this fork](https://github.com/denko-rb/mruby), where `mruby-io` and `mruby-socket` have been modified
-- `partitions.csv` definees 2MB of flash, so it should fit any variant
+- `partitions.csv` definees 4MB of flash, so it should fit any variant
   - Uses [esp_littlefs](https://github.com/joltwallet/esp_littlefs) version 1.20.0
-  - App partition is 1792 kB
-  - `/storage` is 192 kB
+  - App partition is 2816 kB
+  - `/storage` is 1216 kB
 - CPU speed set to 240 MHz for all Xtensa chips
 
 ### Chip-Specific Notes
@@ -73,7 +73,7 @@ end
 
 ## Dependencies
 
-Dependencies are automatically handled by mruby's build system. These links are for refrence.
+Dependencies are automatically handled by mruby's build system. These links are for refrence:
 
 - [mruby-esp32-system](https://github.com/mruby-esp32/mruby-esp32-system)
 - [mruby-denko-wifi-esp32](https://github.com/denko-rb/mruby-denko-wifi-esp32)
