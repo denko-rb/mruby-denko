@@ -45,6 +45,12 @@ MRuby::CrossBuild.new('esp32') do |conf|
     cc.defines << %w(MRB_NO_BOXING)
 
     cc.defines << %w(ESP_PLATFORM)
+
+    # PicoRuby specific stuff
+    cc.defines << %w(PICORB_VM_MRUBY)
+    cc.defines << %w(PICORUBY_PORT_ESP32)
+    stub_include_path = File.expand_path(File.join(__dir__, "include"))
+    cc.include_paths << stub_include_path
   end
 
   conf.cxx do |cxx|
