@@ -1,8 +1,10 @@
-# Use submodules without Denko:: prefix.
-include Denko
+RED_PIN = 4
+GREEN_PIN = 5
+BLUE_PIN = 6
+board = Denko::Board.new
 
 # Connect anodes of common-cathode RGB LED to 3 pins.
-rgb_led = LED::RGB.new(pins: {red: 4, green: 5, blue: 2})
+rgb_led = Denko::LED::RGB.new(board: board, pins: {red: RED_PIN, green: GREEN_PIN, blue: BLUE_PIN})
 
 # Cycle through the colors.
 [:blue, :green, :red].cycle do |color|

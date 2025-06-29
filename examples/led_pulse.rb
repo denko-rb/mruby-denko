@@ -1,9 +1,9 @@
-PIN = 8
+PIN = 6
 board = Denko::Board.new
 
 # Give built-in LED pin, or connect external LED to a pin.
 # Will not work with built in WS2812 LEDs.
-led = Denko::PulseIO::PWMOutput.new(board: board, pin: PIN)
+led = Denko::LED.new(board: board, pin: PIN)
 
 RISING = (0..100).to_a
 FALLING = (1..99).to_a.reverse
