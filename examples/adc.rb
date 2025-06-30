@@ -1,4 +1,4 @@
-PIN = 8
+PIN = 3
 board = Denko::Board.new
 adc   = Denko::AnalogIO::Input.new(board: board, pin: PIN)
 
