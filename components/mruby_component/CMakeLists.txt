@@ -10,7 +10,7 @@ idf_component_register(
     ${COMPONENT_DIR}/picoruby/mrbgems/picoruby-i2c/ports/esp32/i2c.c
     ${COMPONENT_DIR}/picoruby/mrbgems/picoruby-spi/ports/esp32/spi.c
   INCLUDE_DIRS
-    ${COMPONENT_DIR}/include
+    ${COMPONENT_DIR}/mrbgems/picoruby-stubs/include
     ${COMPONENT_DIR}/mruby/include
   REQUIRES
     esp_hw_support

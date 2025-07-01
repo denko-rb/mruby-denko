@@ -50,8 +50,7 @@ MRuby::CrossBuild.new('esp32') do |conf|
     cc.defines << %w(PICORB_VM_MRUBY)
     cc.defines << %w(PICORUBY_PORT_ESP32)
     cc.defines << %w(MRBC_USE_FLOAT)
-    stub_include_path = File.expand_path(File.join(__dir__, "include"))
-    cc.include_paths << stub_include_path
+    cc.include_paths << "#{__dir__}/mrbgems/picoruby-stubs/include"
   end
 
   conf.cxx do |cxx|
@@ -139,5 +138,5 @@ MRuby::CrossBuild.new('esp32') do |conf|
   conf.gem "#{picoruby_mrbgems}/picoruby-spi"
 
   # ESP32 implementation of Denko::Board
-  conf.gem :github => "denko-rb/mruby-denko-esp32"
+  conf.gem "#{__dir__}/mrbgems/mruby-denko-esp32"
 end
