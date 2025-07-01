@@ -1,0 +1,1 @@
+components/mruby_component/esp32_build_config.rb
