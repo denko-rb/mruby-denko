@@ -13,7 +13,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains t
 
 2.  Recursively clone this repo:
     ```
-    git clone --recursive https://github.com/denko-rb/mruby-denko.git
+    git clone --recursive https://github.com/denko-rb/mruby-denko-esp32-build.git
     ```
 
 3.  Set the target to your chip with `idf.py set-target <YOUR_CHIP>`, where `<YOUR_CHIP>` is one of: `esp32`, `esp32s2` or `esp32s3`.
