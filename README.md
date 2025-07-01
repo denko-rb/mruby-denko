@@ -29,7 +29,7 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains t
 
 6.  Flash and monitor serial output with: `idf.py flash monitor`. Add `-p <YOUR_SERIAL_DEVICE>` if you need to specify.
 
-7.  Each time you edit `main/storage/main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
+7.  Each time you edit `main.rb`, you must build and flash again. Subsequent builds are faster thanks to caching.
 
 8.  Run `idf.py clean fullclean` in the event you want to remove all build files and build from scratch again.
 
