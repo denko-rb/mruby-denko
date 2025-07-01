@@ -18,10 +18,12 @@ Denko is a Ruby/mruby library for working with electronics. This repo contains t
 
 3.  Set the target to your chip with `idf.py set-target <YOUR_CHIP>`, where `<YOUR_CHIP>` is one of: `esp32`, `esp32s2` or `esp32s3`.
 
-4.  These files are symlinked to the top directory so you can easily edit them to customize your build:
-    - `main.rb` : The mruby script that runs automatically when the microcontroller starts up.
-    - `mrbgem.rake` : Adds high-level peripheral drivers from Denko to the build. The ESP32 is limited on storage and RAM. Unlike larger systems where everything from Denko can fit comfortably in RAM, you'll need to tailor your build to suit your needs. Disable peripheral drivers you aren't using, or even whole interfaces like I2C or SPI.
-    - `esp32_build_config.rb` : Adds low-level hardware drivers and mruby core gems to the build. Apart from Wi-Fi and MQTT, only edit this if you really need to save resources, and know what you're doing.
+4.  These files are symlinked to the top directory for convenience, so you can customize your build:
+    - `main.rb` : The mruby script that will run automatically when the microcontroller starts
+    - `mrbgem.rake` : Adds high-level peripheral drivers from Denko to the build
+    - `esp32_build_config.rb` : Adds low-level hardware drivers and mruby core gems to the build
+
+    **Note:** The ESP32 has limited resources, so all drivers can't be included all the time. Disable peripheral drivers you don't need, or whole interfaces like I2C or SPI. Wi-Fi and MQTT can safely be disabled as well, but avoid the mruby core gems unless you really know what you're doing.
 
 5.  Buld with: `idf.py build`
 
