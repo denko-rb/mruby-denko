@@ -11,6 +11,6 @@
 	url = https://github.com/picoruby/picoruby.git
 	fetchRecurseSubmodules = true
 [submodule "components/mruby_component/mrbgems/mruby-denko-esp32"]
-	path = components/mruby_component/mrbgems/mruby-denko-esp32
+	path = mruby-denko-esp32
 	url = https://github.com/denko-rb/mruby-denko-esp32.git
 	fetchrecurseSubmodules = true
