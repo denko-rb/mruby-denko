@@ -37,12 +37,10 @@ module Denko
     def set_pin_debounce(pin, debounce_time)
     end
 
-    def digital_write(pin, value)
-      GPIO.write_at(pin, value)
-    end
+    # digital_write implemented in C
 
     def digital_read(pin)
-      self.update(pin, GPIO.read_at(pin))
+      self.update(pin, _digital_read(pin))
     end
 
     def pwm_write(pin, duty)

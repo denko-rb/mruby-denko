@@ -1,0 +1,43 @@
+#include <mruby.h>
+#include <mruby/array.h>
+#include <mruby/hash.h>
+#include <mruby/variable.h>
+#include <mruby/value.h>
+#include "../../../picoruby/mrbgems/picoruby-gpio/ports/esp32/gpio.c"
+
+static mrb_value
+denko_board_digital_write(mrb_state* mrb, mrb_value self) {
+  mrb_int pin, val;
+  mrb_get_args(mrb, "ii", &pin, &val);
+
+  // From picoruby-gpio esp32 port
+  GPIO_write(pin, val);
+  return mrb_nil_value();
+}
+
+static mrb_value
+denko_board__digital_read(mrb_state* mrb, mrb_value self) {
+  mrb_int pin, state;
+  mrb_get_args(mrb, "i", &pin);
+
+  // From picoruby-gpio esp32 port
+  state = GPIO_read(pin);
+  return mrb_fixnum_value(state);
+}
+
+void
+mrb_mruby_denko_esp32_gem_init(mrb_state* mrb) {
+  // Denko module
+  struct RClass *mrb_Denko = mrb_define_module(mrb, "Denko");
+
+  // Denko::Board class
+  struct RClass *mrb_Denko_Board = mrb_define_class_under(mrb, mrb_Denko, "Board", mrb->object_class);
+
+  // DigitalIO
+  mrb_define_method(mrb, mrb_Denko_Board, "digital_write", denko_board_digital_write,  MRB_ARGS_REQ(2));
+  mrb_define_method(mrb, mrb_Denko_Board, "_digital_read", denko_board__digital_read,  MRB_ARGS_REQ(1));
+}
+
+void
+mrb_mruby_denko_esp32_gem_final(mrb_state* mrb) {
+}
