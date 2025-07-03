@@ -67,4 +67,7 @@ MRuby::Gem::Specification.new('mruby-denko-esp32') do |spec|
   # MOTOR_FILES.each      { |f| spec.rbfiles << "#{denko_lib_dir}/motor/#{f[1]}.rb" }
   # RTC_FILES.each        { |f| spec.rbfiles << "#{denko_lib_dir}/rtc/#{f[1]}.rb" }
   # SENSOR_FILES.each     { |f| spec.rbfiles << "#{denko_lib_dir}/sensor/#{f[1]}.rb" }
+
+  # Deal with multiple classes adding the same file.
+  spec.rbfiles.uniq!
 end
