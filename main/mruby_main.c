@@ -47,7 +47,7 @@ void mruby_task(void *pvParameter)
   mrbc_context_free(mrb, context);
   mrb_close(mrb);
   fclose(fp);
-  
+
 // This task should never end, even if the script ends.
 exit:
   while (1) {
@@ -66,6 +66,10 @@ void app_main()
   };
   ESP_ERROR_CHECK(esp_vfs_littlefs_register(&conf));
 
-  // Run mruby pinned to core 1, leaving core 0 free for other tasks.
-  xTaskCreatePinnedToCore(&mruby_task, "mruby_task", 16384, NULL, 5, NULL, 1);
+  #ifdef CONFIG_SOC_HP_CPU_HAS_MULTIPLE_CORES
+    // Run mruby pinned to core 1, leaving core 0 free for other tasks.
+    xTaskCreatePinnedToCore(&mruby_task, "mruby_task", 16384, NULL, 5, NULL, 1);
+  #else
+    xTaskCreate(&mruby_task, "mruby_task", 16384, NULL, 5, NULL);
+  #endif
 }
