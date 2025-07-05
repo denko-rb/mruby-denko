@@ -1,22 +1,19 @@
-# Use submodules without Denko:: prefix.
-include Denko
+BUTTON_PIN = 4
+LED_PIN = 6
+board = Denko::Board.new
 
-# Connect button between a GPIO pin and ground.
-button = DigitalIO::Button.new(pin: 4, pullup: true)
+button = Denko::DigitalIO::Button.new(board: board, pin: BUTTON_PIN, mode: :input_pullup)
+led    = Denko::DigitalIO::Output.new(board: board, pin: LED_PIN)
 
-# Give built-in LED pin, or connect external LED to a pin.
-# Will not work with built in WS2812 LEDs.
-led = LED.new(pin: 2)
+# Read initial state.
+button.read
 
 # Add callbacks so LED is only lit when button is pressed.
 button.up   { led.off }
 button.down { led. on }
 
-# Read initial state.
-button.read
-
 # Read the button approximately every 1ms in and endless loop.
 loop do
   button.read
-  $board.micro_sleep(1000)
+  board.micro_delay(1000)
 end

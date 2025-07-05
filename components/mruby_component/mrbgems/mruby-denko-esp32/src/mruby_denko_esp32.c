@@ -3,6 +3,9 @@
 #include <mruby/hash.h>
 #include <mruby/variable.h>
 #include <mruby/value.h>
+
+#include <esp_rom_sys.h>
+
 #include "../../../picoruby/mrbgems/picoruby-gpio/ports/esp32/gpio.c"
 
 static mrb_value
@@ -25,6 +28,14 @@ denko_board__digital_read(mrb_state* mrb, mrb_value self) {
   return mrb_fixnum_value(state);
 }
 
+static mrb_value
+denko_board_micro_delay(mrb_state *mrb, mrb_value self) {
+  mrb_int microseconds;
+  mrb_get_args(mrb, "i", &microseconds);
+  esp_rom_delay_us(microseconds);
+  return self;
+}
+
 void
 mrb_mruby_denko_esp32_gem_init(mrb_state* mrb) {
   // Denko module
@@ -32,6 +43,9 @@ mrb_mruby_denko_esp32_gem_init(mrb_state* mrb) {
 
   // Denko::Board class
   struct RClass *mrb_Denko_Board = mrb_define_class_under(mrb, mrb_Denko, "Board", mrb->object_class);
+
+  // System
+  mrb_define_method(mrb, mrb_Denko_Board, "micro_delay",    denko_board_micro_delay,    MRB_ARGS_REQ(1));
 
   // DigitalIO
   mrb_define_method(mrb, mrb_Denko_Board, "digital_write", denko_board_digital_write,  MRB_ARGS_REQ(2));
